@@ -66,13 +66,12 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_f (
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_m (
 	id_equipo_m INT AUTO_INCREMENT,
     categoria INT NOT NULL,
-    nombre_director_tecnico	TEXT(60) NOT NULL,
-	apellido_director_tecnico	TEXT(60) NOT NULL,
+    id_dt INT  NOT NULL,
     partidos_jugados INT NOT NULL DEFAULT(0),
     partidos_a_jugar INT NOT NULL DEFAULT(0),
 	sexo char DEFAULT 'M',
     id_club INT  NOT NULL,
-    PRIMARY KEY (id_equipo_m),
+    PRIMARY KEY (id_equipo_M),
     INDEX (categoria, id_club)
     -- foreign key categoria y id_equipo y id_club
 	-- CONSTRAINT fk_id_equipo_m FOREIGN KEY (id_equipo_m) REFERENCES club (id_club) ON UPDATE CASCADE
