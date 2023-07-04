@@ -1,0 +1,197 @@
+
+CREATE DATABASE TorneoDeportivoVictoriaRodriguez;
+
+USE TorneoDeportivoVictoriaRodriguez;
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.club(
+	id_club INT AUTO_INCREMENT,
+    nombre_club VARCHAR(60) NOT NULL,
+    PRIMARY KEY (id_club)
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.jugador_f (
+	id_jugador_f INT AUTO_INCREMENT ,
+    nombre_j TEXT NOT NULL,
+    apellido_j TEXT NOT NULL,
+    dni_j INT(11) NOT NULL ,
+    categoria INT(4) NOT NULL,
+    numero_camiseta INT(2) NOT NULL,
+    camiseta_talle TEXT NOT NULL,
+    pantalon_talle TEXT NOT NULL,
+    partidos_jugados INT NOT NULL,
+    goles INT NOT NULL,
+	sexo char DEFAULT 'F',
+    id_club INT,
+    id_comida INT,
+    PRIMARY KEY (id_jugador_f),
+    INDEX dni_j (dni_j),
+    CONSTRAINT fk_id_club FOREIGN KEY (id_jugador_f) REFERENCES club (id_club) 
+    ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.jugador_m (
+	id_jugador_m INT AUTO_INCREMENT ,
+    nombre_j TEXT NOT NULL,
+    apellido_j TEXT NOT NULL,
+    dni_j INT(11) NOT NULL ,
+    categoria INT(4) NOT NULL,
+    numero_camiseta INT(2) NOT NULL,
+    camiseta_talle TEXT NOT NULL,
+    pantalon_talle TEXT NOT NULL,
+    partidos_jugados INT NOT NULL,
+    goles INT NOT NULL,
+	sexo char DEFAULT 'M',
+    id_club INT,
+    id_comida INT,
+    PRIMARY KEY (id_jugador_m),
+    INDEX dni_j (dni_j),
+    CONSTRAINT fk_id_club_m FOREIGN KEY (id_jugador_m) REFERENCES club (id_club)
+    ON UPDATE CASCADE
+
+);
+
+ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_f (
+id_equipo_f INT AUTO_INCREMENT,
+categoria INT NOT NULL,
+id_dt INT NOT NULL,
+partidos_jugados INT NOT NULL DEFAULT 0,
+partidos_a_jugar INT NOT NULL DEFAULT 0,
+sexo char DEFAULT 'F',
+id_club INT NOT NULL,
+PRIMARY KEY (id_equipo_f),
+INDEX (categoria, id_club),
+-- foreign key categoria y id_equipo y id_club
+CONSTRAINT fk_id_equipo_f FOREIGN KEY (id_equipo_f) REFERENCES club (id_club) ON UPDATE CASCADE
+
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_m (
+	id_equipo_m INT AUTO_INCREMENT,
+    categoria INT NOT NULL,
+    nombre_director_tecnico	TEXT NOT NULL,
+	apellido_director_tecnico	TEXT NOT NULL,
+    partidos_jugados INT NOT NULL DEFAULT(0),
+    partidos_a_jugar INT NOT NULL DEFAULT(0),
+	sexo char DEFAULT 'M',
+    id_club INT  NOT NULL,
+    PRIMARY KEY (id_equipo_m),
+    INDEX (categoria, id_club),
+    -- foreign key categoria y id_equipo y id_club
+	CONSTRAINT fk_id_equipo_m FOREIGN KEY (id_equipo_m) REFERENCES club (id_club) ON UPDATE CASCADE
+
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.categoria (
+	id_cat INT AUTO_INCREMENT,
+    categoria INT NOT NULL,
+    PRIMARY KEY (id_cat)
+    -- foreign key categoria por que voy a realizar busquedas por la categoria de un jugador
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.partido (
+	id_partido INT AUTO_INCREMENT,
+    id_arbitro INT NOT NULL,
+	fecha_hora DATETIME NOT NULL,
+    id_equipo_local INT NOT NULL,
+    id_equipo_visitante INT NOT NULL,
+    PRIMARY KEY (id_partido),
+    -- foreign key id_equipo_local y visitante 
+	CONSTRAINT fk_id_equipo_local FOREIGN KEY (id_equipo_local) REFERENCES club (id_club)
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.posicion (
+	id_posicion INT AUTO_INCREMENT UNIQUE,
+    nombre_posicion TEXT NOT NULL,
+	nombre_posicion_corto TEXT NOT NULL,
+    PRIMARY KEY (id_posicion)
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.arbitro (
+	id_arbitro  INT AUTO_INCREMENT UNIQUE,
+	nombre_a TEXT NOT NULL,
+    apellido_a TEXT NOT NULL,
+    dni_a INT(11) NOT NULL,
+    años_experiencia INT NOT NULL,
+    mail VARCHAR(80) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    id_partido INT, -- foreign key partido
+    PRIMARY KEY (id_arbitro),
+    INDEX dni_a (dni_a)
+);
+
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.goleador (
+	id_goleador INT AUTO_INCREMENT,
+	id_jugador INT,
+    categoria INT(4) NOT NULL,
+    cantidad_partidos_jugados INT NOT NULL,
+    miuntos_jugados INT NOT NULL,
+    goles INT NOT NULL,
+    id_club INT NOT NULL,
+    PRIMARY KEY (id_goleador)
+    -- fk id_jugador, categoria
+    -- indice cantidad_partidos
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.condicion_alimentaria (
+	id_comidas INT AUTO_INCREMENT,
+	nombre_condicion TEXT,
+    PRIMARY KEY (id_comidas)
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.talle (
+	id_talle INT AUTO_INCREMENT,
+	talle TEXT NOT NULL,
+    talle_por_tamaño TEXT NOT NULL,
+    PRIMARY KEY (id_talle)
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.periodista (
+	id_periodista INT AUTO_INCREMENT,
+	nombre_p	TEXT  NOT NULL,
+	apellido_p	TEXT  NOT NULL,
+    dni_p	INT(11)	NOT NULL,
+	mail_p VARCHAR(80) NOT NULL,
+	telefono_p VARCHAR(20) NOT NULL,
+	años_experiencia_p INT NOT NULL,
+    prensa TEXT,
+    PRIMARY KEY (id_periodista)
+    -- FK PRENSA para ver a cual pertenece
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.televisacion_prensa (
+	id_prensa INT	NOT NULL  AUTO_INCREMENT,
+	nro_camaras_disponibles	INT  NOT NULL,
+	trae_periodista	TINYINT  NOT NULL,
+    id_periodista INT	NOT NULL,
+	remuneracion DECIMAL(10, 2)	NOT NULL,
+	nombre_empresa	TEXT	NOT NULL,
+	mail VARCHAR(80) NOT NULL,
+	 telefono VARCHAR(20) NOT NULL,
+    oficina_direccion	VARCHAR(60)	NOT NULL,
+    PRIMARY KEY (id_prensa)
+);
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.televisacion_prensa (
+	id_prensa INT	NOT NULL  AUTO_INCREMENT,
+	nro_camaras_disponibles	INT  NOT NULL,
+	trae_periodista	TINYINT  NOT NULL,
+    id_periodista INT	NOT NULL,
+	remuneracion DECIMAL(10, 2)	NOT NULL,
+	nombre_empresa	TEXT	NOT NULL,
+	mail VARCHAR(80) NOT NULL,
+	 telefono VARCHAR(20) NOT NULL,
+    oficina_direccion	VARCHAR(60)	NOT NULL,
+    PRIMARY KEY (id_prensa)
+);
+
+
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.autoridad_torneo (
+	id_autoridad	INT	NOT NULL  AUTO_INCREMENT,
+	nombre_autoridad	TEXT NOT NULL,
+	apellido_autoridad	TEXT NOT NULL,
+    dni	INT	NOT NULL,
+	nombre_torneo	VARCHAR(30)	NOT NULL,
+	nombre_empresa	TEXT	NOT NULL,
+    PRIMARY KEY (id_autoridad)
+);
