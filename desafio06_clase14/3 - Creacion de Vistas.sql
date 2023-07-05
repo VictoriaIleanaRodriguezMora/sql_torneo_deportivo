@@ -30,3 +30,11 @@ GROUP BY id_comidas
 ORDER BY id_comidas ASC
 )
 ;
+
+
+
+
+
+
+
+
