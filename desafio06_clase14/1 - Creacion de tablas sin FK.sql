@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.jugador_f (
 	sexo char DEFAULT 'F',
     id_club INT,
     id_comida INT,
+    id_posicion INT,
     PRIMARY KEY (id_jugador_f),
     INDEX dni_j (dni_j)
     -- CONSTRAINT fk_id_club FOREIGN KEY (id_jugador_f) REFERENCES club (id_club) ON UPDATE CASCADE
