@@ -1,4 +1,3 @@
-
 CREATE DATABASE TorneoDeportivoVictoriaRodriguez;
 
 USE TorneoDeportivoVictoriaRodriguez;

@@ -1,4 +1,5 @@
 # Desafio Clase 14
+USE torneodeportivovictoriarodriguez;
 
 CREATE VIEW contador_condicion_alimentaria_f AS(
 # Vista para ver la condicion alimentaria de las jugadoras femeninas. Para ver que cantidad y que tipo de comida se debe preparar/encargar para el torneo.
