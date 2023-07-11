@@ -1,4 +1,4 @@
-DELIMITER$$
+DELIMITER $$
 CREATE FUNCTION contar_partidos_ganados(id_equipo INT)
 RETURNS INT
 DETERMINISTIC
