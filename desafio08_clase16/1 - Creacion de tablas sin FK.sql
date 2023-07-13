@@ -1,8 +1,7 @@
+
 CREATE DATABASE TorneoDeportivoVictoriaRodriguez;
 
 USE TorneoDeportivoVictoriaRodriguez;
-# Si en mi computadora no arrojo esta linea, no me permite insertar dato en las tablas que tienen FK
--- SET FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.club(
 	id_club INT AUTO_INCREMENT,
@@ -27,7 +26,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.jugador_f (
     id_posicion INT,
     PRIMARY KEY (id_jugador_f),
     INDEX dni_j (dni_j)
-    , CONSTRAINT fk_id_club FOREIGN KEY (id_jugador_f) REFERENCES club (id_club) ON UPDATE CASCADE
+    -- CONSTRAINT fk_id_club FOREIGN KEY (id_jugador_f) REFERENCES club (id_club) ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.jugador_m (
@@ -47,7 +46,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.jugador_m (
 	id_posicion INT,
     PRIMARY KEY (id_jugador_m),
     INDEX dni_j (dni_j)
-    , CONSTRAINT fk_id_club_m FOREIGN KEY (id_jugador_m) REFERENCES club (id_club)  ON UPDATE CASCADE
+    -- CONSTRAINT fk_id_club_m FOREIGN KEY (id_jugador_m) REFERENCES club (id_club)  ON UPDATE CASCADE
 
 );
 
@@ -62,7 +61,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_f (
     PRIMARY KEY (id_equipo_f),
     INDEX (categoria, id_club)
     -- foreign key categoria y id_equipo y id_club
-	, CONSTRAINT fk_id_equipo_f FOREIGN KEY (id_equipo_f) REFERENCES club (id_club) ON UPDATE CASCADE
+	-- CONSTRAINT fk_id_equipo_f FOREIGN KEY (id_equipo_f) REFERENCES club (id_club) ON UPDATE CASCADE
 
 );
 
@@ -77,7 +76,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_m (
     PRIMARY KEY (id_equipo_M),
     INDEX (categoria, id_club)
     -- foreign key categoria y id_equipo y id_club
-	, CONSTRAINT fk_id_equipo_m FOREIGN KEY (id_equipo_m) REFERENCES club (id_club) ON UPDATE CASCADE
+	-- CONSTRAINT fk_id_equipo_m FOREIGN KEY (id_equipo_m) REFERENCES club (id_club) ON UPDATE CASCADE
 
 );
 
@@ -92,16 +91,12 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.partido_f (
 	id_partido INT AUTO_INCREMENT,
     id_arbitro INT NOT NULL,
 	fecha_hora DATETIME NOT NULL,
-    categoria INT NOT NULL DEFAULT 0, 
     id_equipo_local INT NOT NULL,
     id_equipo_visitante INT NOT NULL,
-    id_equipo_ganador INT NOT NULL DEFAULT 0,
-    id_equipo_perdedor INT NOT NULL DEFAULT 0,
-    finalizado_correctamente TINYINT,
     sexo_j CHAR DEFAULT 'F',
     PRIMARY KEY (id_partido)
     -- foreign key id_equipo_local y visitante 
-	, CONSTRAINT fk_id_equipo_local_f FOREIGN KEY (id_equipo_local) REFERENCES club (id_club)
+	-- CONSTRAINT fk_id_equipo_local FOREIGN KEY (id_equipo_local) REFERENCES club (id_club)
 );
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.partido_m (
@@ -110,13 +105,10 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.partido_m (
 	fecha_hora DATETIME NOT NULL,
     id_equipo_local INT NOT NULL,
     id_equipo_visitante INT NOT NULL,
-	id_equipo_ganador INT NOT NULL DEFAULT 0,
-    id_equipo_perdedor INT NOT NULL DEFAULT 0,
-    finalizado_correctamente TINYINT,
     sexo_j CHAR DEFAULT 'M',
     PRIMARY KEY (id_partido)
     -- foreign key id_equipo_local y visitante 
-	, CONSTRAINT fk_id_equipo_local_m FOREIGN KEY (id_equipo_local) REFERENCES club (id_club)
+	-- CONSTRAINT fk_id_equipo_local FOREIGN KEY (id_equipo_local) REFERENCES club (id_club)
 );
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.posicion (
@@ -215,5 +207,3 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.autoridad_torneo (
 	nombre_empresa	TEXT(60)	NOT NULL,
     PRIMARY KEY (id_autoridad)
 );
-
-SET FOREIGN_KEY_CHECKS = 0;
