@@ -164,6 +164,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.log_goleador (
     categoria INT(4) NOT NULL,
     goles INT NOT NULL,
     id_club INT NOT NULL,
+	id_jugador_old INT,
     PRIMARY KEY (id_goleador)
     -- fk id_jugador, categoria
     -- indice cantidad_partidos
@@ -233,3 +234,5 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.autoridad_torneo (
 );
 
 SET FOREIGN_KEY_CHECKS = 0;
+SET SQL_SAFE_UPDATES = 0;
+
