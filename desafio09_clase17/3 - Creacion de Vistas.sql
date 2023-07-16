@@ -107,4 +107,3 @@ GROUP BY pscn.id_posicion
 
 
 
-
