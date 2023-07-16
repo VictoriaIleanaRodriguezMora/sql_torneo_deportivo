@@ -158,13 +158,12 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.goleador (
     -- indice cantidad_partidos
 );
 
-CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.goleador_v2 (
+CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.log_goleador (
 	id_goleador INT AUTO_INCREMENT,
-	`2000` INT NOT NULL,
-	`1999` INT NOT NULL,
-	`1998` INT NOT NULL,
-	`1997` INT NOT NULL,
-    `1995` INT NOT NULL,
+	id_jugador INT,
+    categoria INT(4) NOT NULL,
+    goles INT NOT NULL,
+    id_club INT NOT NULL,
     PRIMARY KEY (id_goleador)
     -- fk id_jugador, categoria
     -- indice cantidad_partidos

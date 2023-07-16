@@ -1,4 +1,3 @@
-DROP PROCEDURE `torneodeportivovictoriarodriguez`.`trabajar_goles`;
 DELIMITER $$
 CREATE PROCEDURE trabajar_goles ()
 
