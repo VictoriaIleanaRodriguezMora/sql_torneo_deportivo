@@ -219,6 +219,19 @@ END $$
 
 DELIMITER ;
 
+
+DELIMITER $$
+CREATE PROCEDURE partido_con_mas_goles (categoria_param INT)
+# Este SP dice, cual es el partido, en el que mas goles se realizaron. Por categoria.
+BEGIN
+DECLARE maxima_cantidad_goles INT;
+SET maxima_cantidad_goles = (SELECT GREATEST(MAX(equipo_local_goles), MAX(equipo_visitante_goles)) FROM partido_f);
+(SELECT * FROM partido_f WHERE (equipo_local_goles = a) OR  (equipo_visitante_goles = a) AND (categoria = categoria_param) );
+
+END $$
+DELIMITER ;
+
+
 #############################################################
 #################  FIN - STORED PROCEDURES ##################
 #############################################################
