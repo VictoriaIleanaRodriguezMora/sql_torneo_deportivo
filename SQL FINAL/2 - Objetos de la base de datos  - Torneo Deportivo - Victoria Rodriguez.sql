@@ -12,7 +12,7 @@
 USE torneodeportivovictoriarodriguez;
 
 CREATE VIEW contador_condicion_alimentaria_f AS(
-# Vista para ver la condicion alimentaria de las jugadoras femeninas. Para ver que cantidad y que tipo de comida se debe preparar/encargar para el torneo.
+# Vista para ver la condicion alimentaria de las jugadoras femeniN    BN N  nas. Para ver que cantidad y que tipo de comida se debe preparar/encargar para el torneo.
 SELECT 
        ca.id_comidas
        , ca.nombre_condicion
@@ -208,7 +208,7 @@ DELIMITER ;
 
 DELIMITER $$
 # Este SP, recibe un id_equipo, de la tabla partido_f, y te dice cuantos partidos ganó y perdió ese equipo
-CREATE PROCEDURE partidos_por_equipo (id_equipo_param INT)
+CREATE PROCEDURE partidos_ganados_y_perdidos_por_equipo (id_equipo_param INT)
 BEGIN
 (
 SELECT 
@@ -226,7 +226,7 @@ CREATE PROCEDURE partido_con_mas_goles (categoria_param INT)
 BEGIN
 DECLARE maxima_cantidad_goles INT;
 SET maxima_cantidad_goles = (SELECT GREATEST(MAX(equipo_local_goles), MAX(equipo_visitante_goles)) FROM partido_f);
-(SELECT * FROM partido_f WHERE (equipo_local_goles = a) OR  (equipo_visitante_goles = a) AND (categoria = categoria_param) );
+(SELECT * FROM partido_f WHERE (equipo_local_goles = maxima_cantidad_goles) OR  (equipo_visitante_goles = maxima_cantidad_goles) AND (categoria = categoria_param) );
 
 END $$
 DELIMITER ;
