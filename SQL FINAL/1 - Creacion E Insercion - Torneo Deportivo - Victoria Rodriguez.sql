@@ -297,11 +297,8 @@ VALUES
 (NULL,'CABJ'),
 (NULL,'SEDALO'),
 (NULL,'AAAJ'),
-(NULL,'DORREGO'),
-(NULL,'PLATENSE'),
-(NULL,'SAG POLVORINES'),
-(NULL,'LUJAN'),
-(NULL,'VELEZ')
+(NULL,'DORREGO')
+
 ;
 
 INSERT INTO categoria (id_cat, categoria)
@@ -1418,33 +1415,59 @@ VALUES
 # Fecha 2 - 1995
   (NULL, 3, '2023-07-01 11:33:12', 1995, 19, 1),
   (NULL, 2, '2023-07-01 17:32:30', 1995, 31, 13),
-  (NULL, 1, '2023-07-01 03:32:47', 1996, 7, 25),
+  (NULL, 1, '2023-07-01 03:32:47', 1995, 7, 25),
 # Fecha 3 - 1995
-  (NULL, 3, '2024-07-01 10:43:32', 1996, 1, 31),
-  (NULL, 1, '2023-07-01 01:58:00', 1996, 13, 7),
-  (NULL, 2, '2024-07-01 05:56:29', 1996, 25, 19)
- # (NULL, 3, '2023-06-18 03:35:10', 1996, 26, 2),
- # (NULL, 2, '2024-01-28 11:49:06', 1997, 3, 27),
- # (NULL, 2, '2023-10-28 12:53:09', 1997, 9, 21),
- # (NULL, 1, '2024-04-13 06:48:39', 1997, 15, 15),
- # (NULL, 2, '2024-01-08 14:20:30', 1997, 21, 9),
- # (NULL, 2, '2024-03-12 00:25:02', 1997, 27, 3),
- # (NULL, 2, '2023-04-12 03:01:35', 1998, 4, 28),
- # (NULL, 1, '2024-05-31 17:54:43', 1998, 10, 22),
- # (NULL, 2, '2023-08-08 02:35:26', 1998, 16, 10),
- # (NULL, 2, '2023-04-05 12:50:05', 1998, 22, 16),
- # (NULL, 2, '2023-06-23 18:57:46', 1998, 28, 4),
- # (NULL, 1, '2024-04-20 03:34:44', 1999, 5, 29),
- # (NULL, 1, '2023-05-16 22:00:52', 1999, 11, 23),
- # (NULL, 3, '2024-06-25 11:54:05', 1999, 17, 11),
- # (NULL, 3, '2023-08-28 12:46:00', 1999, 23, 17),
- # (NULL, 3, '2023-10-27 20:57:40', 1999, 29, 5),
- # (NULL, 3, '2024-02-19 20:16:01', 2000, 6, 30),
- # (NULL, 1, '2024-02-12 21:35:00', 2000, 12, 24),
- # (NULL, 3, '2023-03-25 14:24:17', 2000, 18, 12),
- # (NULL, 2, '2023-05-28 12:40:33', 2000, 24, 18),
- # (NULL, 3, '2024-07-23 22:37:15', 2000, 30, 6)
-  
+  (NULL, 3, '2024-07-01 10:43:32', 1995, 1, 31),
+  (NULL, 1, '2023-07-01 01:58:00', 1995, 13, 7),
+  (NULL, 2, '2024-07-01 05:56:29', 1995, 25, 19),
+# Fecha 1 - 1996
+   (NULL, 3, '2023-06-18 03:35:10', 1996, 2, 8),
+   (NULL, 2, '2024-01-28 11:49:06', 1996, 14, 20),
+   (NULL, 2, '2023-10-28 12:53:09', 1996, 26, 32),
+# Fecha 2 - 1996
+   (NULL, 1, '2024-04-13 06:48:39', 1996, 20, 2),
+   (NULL, 2, '2024-01-08 14:20:30', 1996, 8, 26),
+   (NULL, 2, '2024-03-12 00:25:02', 1996, 32, 14),
+# Fecha 3 - 1996
+   (NULL, 2, '2023-04-12 03:01:35', 1996, 14, 8),
+   (NULL, 1, '2024-05-31 17:54:43', 1996, 2, 32),
+   (NULL, 2, '2023-08-08 02:35:26', 1996, 26, 20),
+# Fecha 1 - 1997
+   (NULL, 2, '2023-04-05 12:50:05', 1997, 3, 9),
+   (NULL, 2, '2023-06-23 18:57:46', 1997, 15, 21),
+   (NULL, 1, '2024-04-20 03:34:44', 1997, 27, 33),
+# Fecha 2 - 1997
+   (NULL, 1, '2023-05-16 22:00:52', 1997, 21, 3),
+   (NULL, 3, '2024-06-25 11:54:05', 1997, 9, 27),
+   (NULL, 3, '2023-08-28 12:46:00', 1997, 33, 15),
+# Fecha 3 - 1997
+   (NULL, 3, '2023-10-27 20:57:40', 1997, 15, 9),
+   (NULL, 3, '2024-02-19 20:16:01', 1997, 3, 33),
+   (NULL, 1, '2024-02-12 21:35:00', 1997, 27, 21),
+# Fecha 1 - 1998
+   (NULL, 3, '2023-03-25 14:24:17', 1998, 4, 10),
+   (NULL, 2, '2023-05-28 12:40:33', 1998, 16, 22),
+   (NULL, 3, '2024-07-23 22:37:15', 1998, 28, 34),
+# Fecha 2 - 1998
+   (NULL, 3, '2023-03-25 14:24:17', 1998, 22, 4),
+   (NULL, 2, '2023-05-28 12:40:33', 1998, 10, 28),
+   (NULL, 3, '2024-07-23 22:37:15', 1998, 34, 16),
+# Fecha 3 - 1998
+   (NULL, 3, '2023-03-25 14:24:17', 1998, 16, 10),
+   (NULL, 2, '2023-05-28 12:40:33', 1998, 4, 34),
+   (NULL, 3, '2024-07-23 22:37:15', 1998, 28, 22),
+# Fecha 1 - 1999
+   (NULL, 3, '2023-03-25 14:24:17', 1999, 5, 11),
+   (NULL, 2, '2023-05-28 12:40:33', 1999, 17, 23),
+   (NULL, 3, '2024-07-23 22:37:15', 1999, 29, 35),
+# Fecha 2 - 1999
+   (NULL, 3, '2023-03-25 14:24:17', 1999, 23, 5),
+   (NULL, 2, '2023-05-28 12:40:33', 1999, 11, 29),
+   (NULL, 3, '2024-07-23 22:37:15', 1999, 35, 17),
+# Fecha 3 - 1999
+   (NULL, 3, '2023-03-25 14:24:17', 1999, 17, 11),
+   (NULL, 2, '2023-05-28 12:40:33', 1999, 5, 35),
+   (NULL, 3, '2024-07-23 22:37:15', 1999, 29, 23)
 ;
 
 
@@ -1739,7 +1762,7 @@ UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `finalizado_correctame
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `finalizado_correctamente` = '1' WHERE (`id_partido` = '3');
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `finalizado_correctamente` = '1' WHERE (`id_partido` = '4');
 
-
+#1995
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `id_equipo_perdedor` = '7' WHERE (`id_partido` = '1');
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '6', `equipo_visitante_goles` = '15', `id_equipo_ganador` = '19', `id_equipo_perdedor` = '13' WHERE (`id_partido` = '2');
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '17', `equipo_visitante_goles` = '18', `id_equipo_ganador` = '31', `id_equipo_perdedor` = '25' WHERE (`id_partido` = '3');
@@ -1749,6 +1772,39 @@ UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` =
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '17', `equipo_visitante_goles` = '16', `id_equipo_ganador` = '1', `id_equipo_perdedor` = '31' WHERE (`id_partido` = '7');
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '8', `equipo_visitante_goles` = '11', `id_equipo_ganador` = '7', `id_equipo_perdedor` = '13' WHERE (`id_partido` = '8');
 UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '21', `equipo_visitante_goles` = '25', `id_equipo_ganador` = '19', `id_equipo_perdedor` = '25' WHERE (`id_partido` = '9');
+
+#1996
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '17', `equipo_visitante_goles` = '19', `id_equipo_ganador` = '8', `id_equipo_perdedor` = '2' WHERE (`id_partido` = '10');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '4', `equipo_visitante_goles` = '21', `id_equipo_ganador` = '20', `id_equipo_perdedor` = '14' WHERE (`id_partido` = '11');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '15', `equipo_visitante_goles` = '12', `id_equipo_ganador` = '26', `id_equipo_perdedor` = '32' WHERE (`id_partido` = '12');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '7', `equipo_visitante_goles` = '8', `id_equipo_ganador` = '20', `id_equipo_perdedor` = '2' WHERE (`id_partido` = '13');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '13', `equipo_visitante_goles` = '9', `id_equipo_ganador` = '8', `id_equipo_perdedor` = '26' WHERE (`id_partido` = '14');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '14', `equipo_visitante_goles` = '22', `id_equipo_ganador` = '14', `id_equipo_perdedor` = '32' WHERE (`id_partido` = '15');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '25', `equipo_visitante_goles` = '16', `id_equipo_ganador` = '14', `id_equipo_perdedor` = '8' WHERE (`id_partido` = '16');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '13', `equipo_visitante_goles` = '16', `id_equipo_ganador` = '32', `id_equipo_perdedor` = '2' WHERE (`id_partido` = '17');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '11', `equipo_visitante_goles` = '10', `id_equipo_ganador` = '26', `id_equipo_perdedor` = '20' WHERE (`id_partido` = '18');
+
+# 1997 
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '13', `equipo_visitante_goles` = '18', `id_equipo_ganador` = '9', `id_equipo_perdedor` = '3' WHERE (`id_partido` = '19');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '6', `equipo_visitante_goles` = '19', `id_equipo_ganador` = '21', `id_equipo_perdedor` = '15' WHERE (`id_partido` = '20');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '17', `equipo_visitante_goles` = '13', `id_equipo_ganador` = '27', `id_equipo_perdedor` = '33' WHERE (`id_partido` = '21');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '5', `equipo_visitante_goles` = '9', `id_equipo_ganador` = '21', `id_equipo_perdedor` = '3' WHERE (`id_partido` = '22');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '15', `equipo_visitante_goles` = '10', `id_equipo_ganador` = '9', `id_equipo_perdedor` = '27' WHERE (`id_partido` = '23');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '15', `equipo_visitante_goles` = '20', `id_equipo_ganador` = '15', `id_equipo_perdedor` = '33' WHERE (`id_partido` = '24');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '25', `equipo_visitante_goles` = '18', `id_equipo_ganador` = '15', `id_equipo_perdedor` = '9' WHERE (`id_partido` = '25');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '13', `equipo_visitante_goles` = '16', `id_equipo_ganador` = '33', `id_equipo_perdedor` = '3' WHERE (`id_partido` = '26');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '11', `equipo_visitante_goles` = '10', `id_equipo_ganador` = '27', `id_equipo_perdedor` = '21' WHERE (`id_partido` = '27');
+
+# 1998
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '13', `equipo_visitante_goles` = '18', `id_equipo_ganador` = '9', `id_equipo_perdedor` = '3' WHERE (`id_partido` = '19');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '6', `equipo_visitante_goles` = '19', `id_equipo_ganador` = '21', `id_equipo_perdedor` = '15' WHERE (`id_partido` = '20');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '17', `equipo_visitante_goles` = '13', `id_equipo_ganador` = '27', `id_equipo_perdedor` = '33' WHERE (`id_partido` = '21');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '5', `equipo_visitante_goles` = '9', `id_equipo_ganador` = '21', `id_equipo_perdedor` = '3' WHERE (`id_partido` = '22');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '15', `equipo_visitante_goles` = '10', `id_equipo_ganador` = '9', `id_equipo_perdedor` = '27' WHERE (`id_partido` = '23');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '15', `equipo_visitante_goles` = '20', `id_equipo_ganador` = '15', `id_equipo_perdedor` = '33' WHERE (`id_partido` = '24');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '25', `equipo_visitante_goles` = '18', `id_equipo_ganador` = '15', `id_equipo_perdedor` = '9' WHERE (`id_partido` = '25');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '13', `equipo_visitante_goles` = '16', `id_equipo_ganador` = '33', `id_equipo_perdedor` = '3' WHERE (`id_partido` = '26');
+UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` = '11', `equipo_visitante_goles` = '10', `id_equipo_ganador` = '27', `id_equipo_perdedor` = '21' WHERE (`id_partido` = '27');
 
 
 
