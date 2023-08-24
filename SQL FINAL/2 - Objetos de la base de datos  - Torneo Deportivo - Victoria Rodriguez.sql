@@ -47,6 +47,20 @@ ORDER BY id_comidas ASC
 )
 ;
 
+
+
+CREATE VIEW prensa_y_periodista AS(
+# Esta vista muestra, que periodistas, estan con qué empresa. 
+SELECT 
+tv_p.id_prensa, tv_p.nro_camaras_disponibles, tv_p.nombre_empresa, tv_p.mail, tv_p.telefono, tv_p.oficina_direccion,
+	 p.id_periodista, p.apellido_p, p.dni_p, p.mail_p, p.telefono_p 
+FROM periodista AS p
+JOIN televisacion_prensa AS tv_p
+ON p.id_periodista = tv_p.id_periodista
+)
+;
+
+
 #############################################################
 ######################  FIN - VISTAS  #######################
 #############################################################
