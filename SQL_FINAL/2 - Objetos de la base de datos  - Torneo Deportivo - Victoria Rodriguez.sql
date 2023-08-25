@@ -60,6 +60,19 @@ ON p.id_periodista = tv_p.id_periodista
 )
 ;
 
+CREATE VIEW cuanto_se_usa_cada_talle AS(
+# Esta vista te dice cuanto de cada talle se necesita/es usado por cada jugador. 
+SELECT 
+  t.id_talle
+ , t.talle
+ , COUNT(jf.camiseta_talle) AS 'total jugadores'
+FROM talle AS t
+JOIN  jugador_f AS jf
+ON t.id_talle = jf.camiseta_talle
+GROUP BY  t.id_talle
+)
+;
+
 
 #############################################################
 ######################  FIN - VISTAS  #######################
