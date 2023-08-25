@@ -1,4 +1,5 @@
 
+
 #######################################################################
 ###################   OBJETOS DE LA BASE DE DATOS   ###################
 #######################################################################
@@ -105,8 +106,8 @@ GROUP BY  t.id_talle
 #############################################################
 
 DELIMITER $$
-# Este procedure devuelve datos segun la categoria, id_club y sexo de las tablas jugador_f y jugador_m
-CREATE PROCEDURE info_por_categoria (cat_param INT, id_club_param INT,  sexo_param CHAR, orderby_param TEXT)
+CREATE PROCEDURE info_por_categoria (cat_param INT, id_club_param INT,  sexo_param CHAR)
+# Este procedure devuelve la informacion segun la categoria, id_club y sexo de las tablas jugador_f y jugador_m
 BEGIN
 IF sexo_param = "F" THEN
 (
@@ -114,7 +115,6 @@ SELECT
 		  id_jugador_f , categoria , id_club
 FROM jugador_f 
 WHERE categoria = cat_param	AND id_club = id_club_param
-ORDER BY id_jugador_f + orderby_param
 );
 
 ELSE IF sexo_param = "M" THEN
@@ -122,7 +122,6 @@ ELSE IF sexo_param = "M" THEN
 SELECT   id_jugador_m , categoria , id_club
 FROM jugador_m 
 WHERE categoria = cat_param	AND id_club = id_club_param
-ORDER BY id_jugador_m + orderby_param
 );
 END IF;
 END IF;
@@ -133,8 +132,8 @@ DELIMITER ;
 
 
 DELIMITER $$
-# Este procedure devuelve datos segun la categoria, id_club y sexo de las tablas jugador_f y jugador_m
 CREATE PROCEDURE goles_por_jugador (id_jug_param INT)
+# Este procedure devuelve los datos del id_jugador pasado
 BEGIN
 (
  SELECT 
@@ -150,6 +149,7 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE goleador_por_categoria(cat_param INT)
+# Devuelve el goleador de la categoria pasada por parametro
 BEGIN
 (
 SELECT id_jugador_f, goles 
@@ -164,8 +164,8 @@ DELIMITER ;
 
 
 DELIMITER $$
-# Este SP, recibe un id_equipo, de la tabla partido_f, y te dice cuantos partidos ganó y perdió ese equipo
 CREATE PROCEDURE partidos_ganados_y_perdidos_por_equipo (id_equipo_param INT)
+# Este SP, recibe un id_equipo, de la tabla partido_f, y te dice cuantos partidos ganó y perdió ese equipo
 BEGIN
 (
 SELECT 
@@ -179,11 +179,11 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE partido_con_mas_goles (categoria_param INT)
-# Este SP dice, cual es el partido, en el que mas goles se realizaron. Por categoria.
+# Este SP dice, cual/es es el partido, en el que mas goles se realizaron. Por categoria.
 BEGIN
 DECLARE maxima_cantidad_goles INT;
 SET maxima_cantidad_goles = (SELECT GREATEST(MAX(equipo_local_goles), MAX(equipo_visitante_goles)) FROM partido_f);
-(SELECT * FROM partido_f WHERE (equipo_local_goles = maxima_cantidad_goles) OR  (equipo_visitante_goles = maxima_cantidad_goles) AND (categoria = categoria_param) );
+(SELECT * FROM partido_f WHERE ((equipo_local_goles = maxima_cantidad_goles) OR  (equipo_visitante_goles = maxima_cantidad_goles)) AND (categoria = categoria_param) );
 
 END $$
 DELIMITER ;
