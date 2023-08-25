@@ -1,13 +1,14 @@
 #############################################################
-###################   CREACION DE DATOS   ###################
+#############################################################
+################# INICIO - CREACION DE DATOS ################
+#############################################################
 #############################################################
 
 
 CREATE DATABASE TorneoDeportivoVictoriaRodriguez;
 
 USE TorneoDeportivoVictoriaRodriguez;
-# Si en mi computadora no arrojo esta linea, no me permite insertar dato en las tablas que tienen FK
--- SET FOREIGN_KEY_CHECKS = 0;
+
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.club(
 	id_club INT AUTO_INCREMENT,
@@ -154,8 +155,6 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.goleador (
 	id_goleador INT AUTO_INCREMENT,
 	id_jugador INT,
     categoria INT(4) NOT NULL,
---   cantidad_partidos_jugados INT NOT NULL,
---    miuntos_jugados INT NOT NULL,
     goles INT NOT NULL,
     id_club INT NOT NULL,
     PRIMARY KEY (id_goleador)
@@ -261,16 +260,20 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.autoridad_torneo (
     PRIMARY KEY (id_autoridad)
 );
 
+# Si en mi computadora no arrojo esta linea, no me permite insertar dato en las tablas que tienen FK
 SET FOREIGN_KEY_CHECKS = 0;
 
 #############################################################
-###################   CREACION DE DATOS   ###################
+#############################################################
+################## FIN - CREACION DE DATOS ##################
+#############################################################
 #############################################################
 
 
-
 #############################################################
-###################  INSERCION DE DATOS   ###################
+#############################################################
+################ INICIO - INSERCION DE DATOS ################
+#############################################################
 #############################################################
 
 
@@ -1810,5 +1813,5 @@ UPDATE `torneodeportivovictoriarodriguez`.`partido_f` SET `equipo_local_goles` =
 
 
 #############################################################
-###################  INSERCION DE DATOS   ###################
+################# FIN - INSERCION DE DATOS  #################
 #############################################################
