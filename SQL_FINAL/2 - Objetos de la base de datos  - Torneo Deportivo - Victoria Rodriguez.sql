@@ -109,19 +109,12 @@ DELIMITER $$
 CREATE PROCEDURE info_por_categoria (cat_param INT, id_club_param INT,  sexo_param CHAR)
 # Este procedure devuelve la informacion segun la categoria, id_club y sexo de las tablas jugador_f y jugador_m
 BEGIN
-IF sexo_param = "F" THEN
-(
-SELECT 
-		  id_jugador_f , categoria , id_club
-FROM jugador_f 
-WHERE categoria = cat_param	AND id_club = id_club_param
+IF sexo_param = "F" THEN (
+SELECT id_jugador_f , categoria , id_club FROM jugador_f WHERE categoria = cat_param	AND id_club = id_club_param
 );
 
-ELSE IF sexo_param = "M" THEN
-(
-SELECT   id_jugador_m , categoria , id_club
-FROM jugador_m 
-WHERE categoria = cat_param	AND id_club = id_club_param
+ELSE IF sexo_param = "M" THEN (
+SELECT id_jugador_m , categoria , id_club FROM jugador_m WHERE categoria = cat_param	AND id_club = id_club_param
 );
 END IF;
 END IF;
@@ -131,35 +124,46 @@ DELIMITER ;
 
 
 
+
 DELIMITER $$
-CREATE PROCEDURE goles_por_jugador (id_jug_param INT)
+CREATE PROCEDURE goles_por_jugador (id_jug_param INT, sexo_param CHAR)
 # Este procedure devuelve los datos del id_jugador pasado
 BEGIN
-(
- SELECT 
-		id_jugador_f, nombre_j, apellido_j, dni_j, categoria,goles, id_club, id_posicion
- FROM jugador_f 
- WHERE id_jugador_f = id_jug_param 
+
+IF sexo_param = "F" THEN (
+ SELECT id_jugador_f, nombre_j, apellido_j, dni_j, categoria,goles, id_club, id_posicion FROM jugador_f  WHERE id_jugador_f = id_jug_param 
 );
+
+ELSE IF sexo_param = "M" THEN (
+ SELECT id_jugador_m, nombre_j, apellido_j, dni_j, categoria,goles, id_club, id_posicion FROM jugador_m  WHERE id_jugador_m = id_jug_param 
+);
+END IF;
+END IF;
+
 END $$
 DELIMITER ;
-# Para probarlo
-# call torneodeportivovictoriarodriguez.goles_por_jugador(6);
+
+
 
 
 DELIMITER $$
-CREATE PROCEDURE goleador_por_categoria(cat_param INT)
-# Devuelve el goleador de la categoria pasada por parametro
+CREATE PROCEDURE goleador_por_categoria (cat_param INT, id_club_param INT,  sexo_param CHAR)
+# Este procedure devuelve la informacion segun la categoria, id_club y sexo de las tablas jugador_f y jugador_m
 BEGIN
-(
-SELECT id_jugador_f, goles 
-FROM jugador_f
-WHERE categoria = cat_param  AND goles =
-(SELECT MAX(goles) FROM jugador_f WHERE categoria = cat_param )
+IF sexo_param = "F" THEN (
+SELECT id_jugador_f, goles FROM jugador_f WHERE categoria = cat_param  AND goles = (SELECT MAX(goles) FROM jugador_f WHERE categoria = cat_param )
 );
+
+ELSE IF sexo_param = "M" THEN (
+SELECT id_jugador_m, goles FROM jugador_m WHERE categoria = cat_param  AND goles = (SELECT MAX(goles) FROM jugador_m WHERE categoria = cat_param )
+);
+
+END IF;
+END IF;
 
 END $$
 DELIMITER ;
+
 
 
 
@@ -172,9 +176,11 @@ SELECT
 (SELECT COUNT(id_equipo_ganador) FROM partido_f WHERE id_equipo_ganador = id_equipo_param)  AS 'partidos ganados',
 (SELECT COUNT(id_equipo_perdedor) FROM partido_f WHERE id_equipo_perdedor = id_equipo_param) AS 'partidos perdidos'
 );
-END $$
 
+END $$
 DELIMITER ;
+
+
 
 
 DELIMITER $$

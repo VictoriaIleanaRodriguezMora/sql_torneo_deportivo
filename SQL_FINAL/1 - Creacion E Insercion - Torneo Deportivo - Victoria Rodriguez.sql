@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.categoria (
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.club(
 	id_club INT AUTO_INCREMENT,
     nombre_club VARCHAR(60) NOT NULL,
+    id_autoridad_club INT NOT NULL,
     PRIMARY KEY (id_club)
 );
 
@@ -296,6 +297,22 @@ VALUES
 (NULL,'Azul','Perez',55666222,4,'perezazul988@gmail.com','5491178945612')
 ;
 
+
+INSERT INTO autoridad_club (id_autoridad,nombre_autoridad_club,apellido_autoridad_club,dni_club)
+VALUES
+(NULL, 'Reagen', 'Heazel', 92254832),
+(NULL, 'Hilly', 'Hampe', 23002107),
+(NULL, 'Korey', 'Wilcott', 22839203),
+(NULL, 'Jeromy', 'Pallister', 66661885),
+(NULL, 'Nickey', 'Cervantes', 74195718),
+(NULL, 'Celine', 'Claxton', 96236665),
+(NULL, 'Bald', 'Londing', 48101821),
+(NULL, 'Jenifer', 'Willstrop', 85218311),
+(NULL, 'Guilbert', 'Summerhayes', 92605610),
+(NULL, 'Laurens', 'Hugonnet', 55746162)
+;
+
+
 INSERT INTO autoridad_torneo (id_autoridad,nombre_autoridad,apellido_autoridad,dni,nombre_torneo,nombre_empresa)
 VALUES
 (NULL,'Ismael','Ruiz',12345678,'FeMeBal','FederacionDeportiva'),
@@ -303,14 +320,14 @@ VALUES
 (NULL,'Ileana','Mora',45678954,'FeMeBal','FederacionDeportiva')
 ;
 
-INSERT INTO club (id_club, nombre_club)
+INSERT INTO club (id_club, nombre_club, id_autoridad_club)
 VALUES 
-(NULL,'CASLA'),
-(NULL,'CARP'),
-(NULL,'CABJ'),
-(NULL,'SEDALO'),
-(NULL,'AAAJ'),
-(NULL,'DORREGO')
+(NULL,'CASLA', 1),
+(NULL,'CARP', 2),
+(NULL,'CABJ', 3),
+(NULL,'SEDALO', 4),
+(NULL,'AAAJ', 5),
+(NULL,'DORREGO', 6)
 
 ;
 
@@ -376,7 +393,7 @@ VALUES
 INSERT INTO jugador_f (id_jugador_f,nombre_j,apellido_j,dni_j,categoria,numero_camiseta,camiseta_talle,pantalon_talle,partidos_jugados,goles,sexo,id_club,id_comida, id_posicion)
 VALUES
 
-
+# 1995 - 1
 (NULL, 'Antonia', 'Chiosso', 98604,1995, 95, 7, 3, 0, 0, 'F', 1, 1, 1),
 (NULL, 'Aleja', 'Hornos', 10512,1995, 86, 5, 5, 0, 0, 'F', 1, 2, 2),
 (NULL, 'Holly', 'Ocampo', 97769,1995, 21, 3, 6, 0, 0, 'F', 1, 3, 3),
@@ -394,25 +411,25 @@ VALUES
 (NULL, 'Eliana', 'Perez', 59146,1995, 37, 1, 6, 0, 0, 'F', 1, 1, 7),
 (NULL, 'Ileana', 'Rodriguez', 55752,1995, 89, 6, 7, 0, 0, 'F', 1, 1, 7),
 
+# 1996 - 1
+(NULL, 'Valentina', 'Jacoby', 98604,1996, 95, 7, 3, 0, 0, 'F', 1, 1, 1),
+(NULL, 'Antonia', 'ALLUE', 10512,1996, 86, 5, 5, 0, 0, 'F', 1, 2, 2),
+(NULL, 'Daniela', 'Fiorentino', 97769,1996, 21, 3, 6, 0, 0, 'F', 1, 3, 3),
+(NULL, 'Cristina', 'Pinasco', 99390,1996, 92, 7, 6, 0, 0, 'F', 1, 4, 4),
+(NULL, 'Ivana', 'Zemborain', 68109,1996, 37, 7, 2, 0, 0, 'F', 1, 5, 5),
+(NULL, 'Miriam', 'Molina', 49042,1996, 38, 4, 2, 0, 0, 'F', 1, 5, 6),
+(NULL, 'Jazmin', 'Navarro', 36463,1996, 4, 3, 5, 0, 0, 'F', 1, 3, 7),
+(NULL, 'Perla', 'Melmik', 81955,1996, 93, 2, 4, 0, 0, 'F', 1, 3, 7),
+(NULL, 'Marina', 'Moya', 52460,1996, 53, 2, 1, 0, 0, 'F', 1, 1, 7),
+(NULL, 'Martina', 'Giorgi', 61434,1996, 24, 5, 6, 0, 0, 'F', 1, 3, 7),
+(NULL, 'Merlina', 'Casini', 21675,1996, 22, 4, 3, 0, 0, 'F', 1, 4, 7),
+(NULL, 'Dana', 'Terraza', 65211,1996, 59, 3, 1, 0, 0, 'F', 1, 5, 7),
+(NULL, 'Paola', 'Oliva', 46771,1996, 50, 5, 4, 0, 0, 'F', 1, 3, 7),
+(NULL, 'Angelica', 'Banzas', 51826,1996, 84, 4, 2, 0, 0, 'F', 1, 2, 7),
+(NULL, 'Abril', 'Bazan', 59146,1996, 37, 1, 6, 0, 0, 'F', 1, 1, 7),
+(NULL, 'Luna', 'Araujo', 55752,1996, 89, 6, 7, 0, 0, 'F', 1, 1, 7),
 
-(NULL, 'Valentina', 'Jacoby', 98604,1995, 95, 7, 3, 0, 0, 'F', 1, 1, 1),
-(NULL, 'Antonia', 'ALLUE', 10512,1995, 86, 5, 5, 0, 0, 'F', 1, 2, 2),
-(NULL, 'Daniela', 'Fiorentino', 97769,1995, 21, 3, 6, 0, 0, 'F', 1, 3, 3),
-(NULL, 'Cristina', 'Pinasco', 99390,1995, 92, 7, 6, 0, 0, 'F', 1, 4, 4),
-(NULL, 'Ivana', 'Zemborain', 68109,1995, 37, 7, 2, 0, 0, 'F', 1, 5, 5),
-(NULL, 'Miriam', 'Molina', 49042,1995, 38, 4, 2, 0, 0, 'F', 1, 5, 6),
-(NULL, 'Jazmin', 'Navarro', 36463,1995, 4, 3, 5, 0, 0, 'F', 1, 3, 7),
-(NULL, 'Perla', 'Melmik', 81955,1995, 93, 2, 4, 0, 0, 'F', 1, 3, 7),
-(NULL, 'Marina', 'Moya', 52460,1995, 53, 2, 1, 0, 0, 'F', 1, 1, 7),
-(NULL, 'Martina', 'Giorgi', 61434,1995, 24, 5, 6, 0, 0, 'F', 1, 3, 7),
-(NULL, 'Merlina', 'Casini', 21675,1995, 22, 4, 3, 0, 0, 'F', 1, 4, 7),
-(NULL, 'Dana', 'Terraza', 65211,1995, 59, 3, 1, 0, 0, 'F', 1, 5, 7),
-(NULL, 'Paola', 'Oliva', 46771,1995, 50, 5, 4, 0, 0, 'F', 1, 3, 7),
-(NULL, 'Angelica', 'Banzas', 51826,1995, 84, 4, 2, 0, 0, 'F', 1, 2, 7),
-(NULL, 'Abril', 'Bazan', 59146,1995, 37, 1, 6, 0, 0, 'F', 1, 1, 7),
-(NULL, 'Luna', 'Araujo', 55752,1995, 89, 6, 7, 0, 0, 'F', 1, 1, 7),
-
-
+# 1997 - 1
 (NULL, 'Jeannie', 'Mandrier', 16049, 1997, 38, 1, 1, 0, 1, 'F', 1, 5, 1),
 (NULL, 'Fae', 'Caress', 41369, 1997, 6, 7, 3, 0, 1,'F', 1, 5, 2),
 (NULL, 'Candice', 'Mellsop', 72672, 1997, 44, 1, 5, 0, 1, 'F',1, 3, 3),
@@ -426,7 +443,7 @@ VALUES
 (NULL, 'Lanna', 'Croasdale', 63254, 1997, 19, 3, 2, 0, 2, 'F', 1, 1, 7),
 (NULL, 'Cynthia', 'Kissack', 10426, 1997, 39, 5, 3, 0, 0, 'F', 1, 1, 7),
 
-
+# 1998 - 1
 (NULL, 'Alyse', 'Bakey', 82247, 1998, 81, 1, 1, 0, 5, 'F', 1, 1, 1),
 (NULL, 'Kayla', 'Kiss', 96478, 1998, 1, 5, 1, 0, 0, 'F', 1, 2, 2),
 (NULL, 'Danica', 'Carroll', 96891, 1998, 60, 4, 6, 0, 0, 'F', 1, 3, 3),
@@ -444,7 +461,7 @@ VALUES
 (NULL, 'Sula', 'Gerrie', 94960, 1998, 35, 4, 1, 0, 0, 'F', 1, 1, 7),
 (NULL, 'Tonia', 'Girdler', 39385, 1998, 99, 7, 4, 0, 0, 'F', 1, 1, 7),
 
-
+# 1999 - 1
 (NULL, 'Val', 'Pavel', 67412, 1999, 52, 2, 3, 0, 0, 'F', 1, 1, 1),
 (NULL, 'Rosalyn', 'Rannells', 52745, 1999, 73, 1, 4, 0, 0, 'F', 1, 2, 2),
 (NULL, 'Belinda', 'Britner', 40568, 1999, 65, 2, 7, 0, 0, 'F', 1, 3, 3),
@@ -462,7 +479,7 @@ VALUES
 (NULL, 'Alverta', 'Nowakowska', 76310, 1999, 83, 7, 3, 0, 0, 'F', 1, 1, 7),
 (NULL, 'Blondelle', 'Tunaclift', 23711, 1999, 96, 3, 3, 0, 0, 'F', 1, 1, 7),
 
-
+# 2000 - 1
 (NULL, 'Robbin', 'Fibbings', 31487, 2000, 58, 2, 5, 0, 0, 'F', 1, 1, 1),
 (NULL, 'Clary', 'Hartigan', 43663, 2000, 54, 7, 1, 0, 0, 'F', 1, 2, 2),
 (NULL, 'Calley', 'Devanny', 35672, 2000, 83, 3, 7, 0, 0, 'F', 1, 3, 3),
@@ -480,7 +497,7 @@ VALUES
 (NULL, 'Lanette', 'Philimore', 14530, 2000, 66, 1, 6, 0, 0, 'F', 1, 1, 7),
 (NULL, 'Marissa', 'Glandfield', 21139, 2000, 71, 6, 1, 0, 0, 'F', 1, 1, 7),
 
-
+# 1995 - 2
 (NULL, 'Deane', 'Ebbin', 68713,1995, 9, 1, 3, 0, 0, 3, 2, 1, 1),
 (NULL, 'Katee', 'Calderhead', 98439,1995, 30, 5, 2, 0, 0, 3, 2, 2, 2),
 (NULL, 'Cammy', 'Estable', 19971,1995, 19, 6, 7, 0, 0, 'F', 2, 3, 3),
@@ -498,7 +515,7 @@ VALUES
 (NULL, 'Catina', 'Jankowski', 62183,1995, 89, 5, 2, 0, 0, 3, 2, 1, 7),
 (NULL, 'Doralynne', 'Elles', 47506,1995, 33, 7, 1, 0, 0, 3, 2, 1, 7),
 
-
+# 1996 - 2
 (NULL, 'Goldie', 'Jouaneton', 85714,1996, 69, 3, 1, 0, 0, 'F', 2, 1, 1),
 (NULL, 'Maris', 'Rattery', 15655,1996, 31, 1, 5, 0, 0, 'F', 2, 2, 2),
 (NULL, 'Franny', 'Mulleary', 10891,1996, 10, 4, 5, 0, 0, 'F', 2, 3, 3),
@@ -516,7 +533,7 @@ VALUES
 (NULL, 'Eddi', 'Featonby', 83009,1996, 6, 1, 1, 0, 0, 'F', 2, 1, 7),
 (NULL, 'Garland', 'Warton', 97418,1996, 95, 3, 1, 0, 0, 'F', 2, 1, 7),
 
-
+# 1997 - 2
 (NULL, 'Mechelle', 'Castagnone', 91546,1997, 42, 4, 7, 0, 0, 'F', 2, 1, 1),
 (NULL, 'Letizia', 'Boswood', 84852,1997, 7, 4, 4, 0, 0, 'F', 2, 2, 2),
 (NULL, 'Ray', 'Bowden', 55409,1997, 92, 2, 7, 0, 0, 'F', 2, 3, 3),
@@ -534,6 +551,7 @@ VALUES
 (NULL, 'Eydie', 'Goodrum', 22537,1997, 47, 4, 1, 0, 0, 'F', 2, 1, 7),
 (NULL, 'Beulah', 'Palk', 94090,1997, 92, 3, 1, 0, 0, 'F', 2, 1, 7),
 
+# 1998 - 2
 (NULL, 'Dori', 'Basili', 93280,1998, 40, 4, 7, 0, 0, 'F', 2, 1, 1),
 (NULL, 'Nessie', 'Fuzzens', 86418,1998, 23, 5, 5, 0, 0, 'F', 2, 2, 2),
 (NULL, 'Rosabel', 'Blastock', 74070,1998, 98, 4, 5, 0, 0, 'F', 2, 3, 3),
@@ -569,7 +587,7 @@ VALUES
 (NULL, 'Basia', 'Trussler', 17405,1999, 51, 6, 1, 0, 0, 'F', 2, 1, 7),
 (NULL, 'Hollyanne', 'Fernant', 19326,1999, 87, 1, 6, 0, 0, 'F', 2, 1, 7),
 
-
+# 1999 - 2
 (NULL, 'Vida', 'Quharge', 97302,2000, 12, 7, 2, 0, 0, 'F', 2, 1, 1),
 (NULL, 'Hannis', 'Garstang', 92012,2000, 34, 5, 7, 0, 0, 'F', 2, 2, 2),
 (NULL, 'Chryste', 'Yankishin', 97277,2000, 61, 1, 6, 0, 0, 'F', 2, 3, 3),
@@ -587,7 +605,7 @@ VALUES
 (NULL, 'Larisa', 'Labbey', 65406,2000, 15, 7, 1, 0, 0, 'F', 2, 1, 7),
 (NULL, 'Velvet', 'Stanaway', 80119,2000, 69, 2, 3, 0, 0, 'F', 2, 1, 7),
 
-
+# 1995 - 2
 (NULL, 'Malina', 'Shalders', 98604,1995, 95, 7, 3, 0, 0, 'F', 3, 1, 1),
 (NULL, 'Faunie', 'Ayliffe', 10512,1995, 86, 5, 5, 0, 0, 'F', 3, 2, 2),
 (NULL, 'Rey', 'Kettow', 97769,1995, 21, 3, 6, 0, 0, 'F', 3, 3, 3),
@@ -605,7 +623,7 @@ VALUES
 (NULL, 'Issie', 'Pudsall', 59146,1995, 37, 1, 6, 0, 0, 'F', 3, 1, 7),
 (NULL, 'Carol', 'Gillie', 55752,1995, 89, 6, 7, 0, 0, 'F', 3, 1, 7),
 
-
+# 1996 - 3
 (NULL, 'Karlyn', 'Kearns', 91813,1996, 10, 7, 6, 0, 0, 3, 3, 1, 1),
 (NULL, 'Imogene', 'Gowanlock', 92864,1996, 98, 4, 6, 0, 0, 'F', 3, 2, 2),
 (NULL, 'Luella', 'Chaves', 60724,1996, 22, 7, 5, 0, 0, 3, 3, 3, 3),
@@ -623,7 +641,7 @@ VALUES
 (NULL, 'Rafaela', 'Penney', 67744,1996, 51, 4, 4, 0, 0, 'F', 3, 1, 7),
 (NULL, 'Cordula', 'Fawdry', 79652,1996, 39, 4, 7, 0, 0, 'F', 3, 1, 7),
 
-
+# 1997 - 3
 (NULL, 'Pierrette', 'Carmen', 97095,1997, 88, 3, 2, 0, 0, 'F', 3, 1, 1),
 (NULL, 'Elene', 'Conachie', 14848,1997, 92, 6, 5, 0, 0, 'F', 3, 2, 2),
 (NULL, 'Amandi', 'Aspray', 66638,1997, 73, 7, 7, 0, 0, 'F', 3, 3, 3),
@@ -641,7 +659,7 @@ VALUES
 (NULL, 'Andie', 'Sherwen', 58720,1997, 92, 2, 6, 0, 0, 'F', 3, 1, 7),
 (NULL, 'Kamillah', 'Jeanet', 38783,1997, 59, 1, 7, 0, 0, 'F', 3, 1, 7),
 
-
+# 1998 - 3
 (NULL, 'Lynnette', 'Becaris', 50157,1998, 84, 5, 5, 0, 0, 'F', 3, 1, 1),
 (NULL, 'Babara', 'Hannan', 92704,1998, 34, 4, 3, 0, 0, 3, 3, 2, 2),
 (NULL, 'Barbara', 'Leppington' ,44818, 1998, 12, 4, 4, 0, 0, 3, 3,3, 3),
@@ -659,7 +677,7 @@ VALUES
 (NULL, 'Netti', 'Collocott', 84883,1998, 71, 3, 4, 0, 0, 'F', 3, 1, 7),
 (NULL, 'Theodora', 'Bickerton', 34373,1998, 29, 3, 3, 0, 0, 'F', 3, 1, 7),
 
-
+# 1999 - 3
 (NULL, 'Ilyse', 'Shann', 96040,1999, 50, 1, 7, 0, 0, 'F', 3, 1, 1),
 (NULL, 'Noell', 'Leades', 86874,1999, 83, 5, 4, 0, 0, 'F', 3, 2, 2),
 (NULL, 'Holly', 'Garfitt', 87235,1999, 31, 7, 7, 0, 0, 'F', 3, 3, 3),
@@ -677,7 +695,7 @@ VALUES
 (NULL, 'Jobi', 'Quarry', 13229,1999, 73, 2, 7, 0, 0, 'F', 3, 1, 7),
 (NULL, 'Appolonia', 'Grinin', 10634,1999, 6, 7, 5, 0, 0, 'F', 3, 1, 7),
 
-
+# 2000 - 3
 (NULL, 'Georgianne', 'Lodwig', 85420,2000, 34, 1, 5, 0, 0, 'F', 3, 1, 1),
 (NULL, 'Libbey', 'Madine', 51831,2000, 73, 5, 2, 0, 0, 'F', 3, 2, 2),
 (NULL, 'Delcine', 'Sullivan', 78984,2000, 48, 5, 4, 0, 0, 'F', 3, 3, 3),
@@ -695,7 +713,7 @@ VALUES
 (NULL, 'Cortney', 'Gissop', 19532,2000, 13, 7, 7, 0, 0, 'F', 3, 1, 7),
 (NULL, 'Joete', 'Wedgbrow', 46562,2000, 65, 6, 6, 0, 0, 'F', 3, 1, 7),
 
-
+# 1995 - 4
 (NULL, 'Nerty', 'Franses', 70353,1995, 41, 5, 1, 0, 0, 'F', 4, 1, 1),
 (NULL, 'Ami', 'Montfort', 94742,1995, 65, 6, 2, 0, 0, 'F', 4, 2, 2),
 (NULL, 'Shawn', 'Ketley', 55666,1995, 54, 6, 4, 0, 0, 'F', 4, 3, 3),
@@ -713,7 +731,7 @@ VALUES
 (NULL, 'Bird', 'Klimpke', 60818,1995, 17, 5, 6, 0, 0, 'F', 4, 1, 7),
 (NULL, 'Tabbie', 'Stanmer', 33468,1995, 86, 5, 7, 0, 0, 'F', 4, 1, 7),
 
-
+# 1996 - 4
 (NULL, 'Hedi', 'Molian', 17267,1996, 71, 2, 3, 0, 0, 'F', 4, 1, 1),
 (NULL, 'Martie', 'Kubal', 87657,1996, 2, 2, 7, 0, 0, 'F', 4, 2, 2),
 (NULL, 'Amandi', 'Tremayne', 11426,1996, 61, 1, 6, 0, 0, 'F', 4, 3, 3),
@@ -731,7 +749,7 @@ VALUES
 (NULL, 'Sheelagh', 'Olivella', 48186,1996, 63, 7, 5, 0, 0, 'F', 4, 1, 7),
 (NULL, 'Bernice', 'Favey', 73339,1996, 78, 2, 4, 0, 0, 'F', 4, 1, 7),
 
-
+# 1997 - 4
 (NULL, 'Sonja', 'Cordelet', 93962,1997, 44, 1, 6, 0, 0, 'F', 4, 1, 1),
 (NULL, 'Dode', 'Purcell', 72761,1997, 33, 7, 1, 0, 0, 'F', 4, 2, 2),
 (NULL, 'Leisha', 'Waddoups', 12940,1997, 76, 6, 7, 0, 0, 'F', 4, 3, 3),
@@ -749,7 +767,7 @@ VALUES
 (NULL, 'Brandais', 'Allmann', 98976,1997, 100, 7, 3, 0, 0, 'F', 4, 1, 7),
 (NULL, 'Nanci', 'Kullmann', 13670,1997, 97, 2, 7, 0, 0, 'F', 4, 1, 7),
 
-
+# 1998 - 4
 (NULL, 'Thalia', 'Kid', 91109,1998, 82, 4, 6, 0, 0, 'F', 4, 1, 1),
 (NULL, 'Dorella', 'Rawe', 50092,1998, 75, 4, 7, 0, 0, 'F', 4, 2, 2),
 (NULL, 'Coralyn', 'Wiltsher', 28511,1998, 23, 3, 3, 0, 0, 'F', 4, 3, 3),
@@ -767,7 +785,7 @@ VALUES
 (NULL, 'Karlen', 'Morley', 79805,1998, 65, 1, 3, 0, 0, 'F', 4, 1, 7),
 (NULL, 'Codee', 'Lewknor', 82332,1998, 15, 6, 5, 0, 0, 'F', 4, 1, 7),
 
-
+# 1999 - 4
 (NULL, 'Kizzee', 'Dickman', 16924,1999, 65, 6, 3, 0, 0, 'F', 4, 1, 1),
 (NULL, 'Nelle', 'Fearnley', 47162,1999, 47, 6, 1, 0, 0, 'F', 4, 2, 2),
 (NULL, 'Anna',  'Shanklin', 75350, 1999, 47, 4, 2, 0, 0, 'F', 4,3, 3),
@@ -785,7 +803,7 @@ VALUES
 (NULL, 'Zenia', 'Blackie', 59209,1999, 60, 2, 1, 0, 0, 'F', 4, 1, 7),
 (NULL, 'Josefina', 'Struis', 10438,1999, 64, 7, 2, 0, 0, 'F', 4, 1, 7),
 
-
+# 2000 - 4
 (NULL, 'Leila', 'Izzatt', 19360,2000, 47, 6, 7, 0, 0, 'F', 4, 1, 1),
 (NULL, 'Rosamund', 'Beenham', 33195,2000, 48, 7, 1, 0, 0, 'F', 4, 2, 2),
 (NULL, 'Evaleen', 'Mawson', 65514,2000, 87, 7, 6, 0, 0, 'F', 4, 3, 3),
@@ -803,7 +821,7 @@ VALUES
 (NULL, 'Angel', 'Maffioni', 78884,2000, 23, 7, 1, 0, 0, 'F', 4, 1, 7),
 (NULL, 'Ashlee', 'Shinefield', 86046,2000, 82, 3, 7, 0, 0, 'F', 4, 1, 7),
 
-
+# 1995 - 5
 (NULL, 'Nicol', 'Duesbury', 83771,1995, 5, 4, 7, 0, 0, 'F', 5, 1, 1),
 (NULL, 'Cecilla', 'Hens', 11471,1995, 21, 7, 7, 0, 0, 'F', 5, 2, 2),
 (NULL, 'Aubine', 'Laight', 98606,1995, 33, 6, 5, 0, 0, 'F', 5, 3, 3),
@@ -821,7 +839,7 @@ VALUES
 (NULL, 'Ramonda', 'Folland', 96839,1995, 7, 7, 7, 0, 0, 'F', 5, 1, 7),
 (NULL, 'Rita', 'Lumly', 60668,1995, 78, 3, 1, 0, 0, 'F', 5, 1, 7),
 
-
+# 1996 - 5
 (NULL, 'Debor', 'Walworth', 42884,1996, 92, 7, 3, 0, 0, 'F', 5, 1, 1),
 (NULL, 'Flossy', 'Kenrat', 36224,1996, 70, 1, 4, 0, 0, 'F', 5, 2, 2),
 (NULL, 'Tiffie', 'Noonan', 43758,1996, 26, 1, 5, 0, 0, 'F', 5, 3, 3),
@@ -857,7 +875,7 @@ VALUES
 (NULL, 'Pepi', 'McCafferty', 59212, 1997, 39, 4, 3, 0, 0, 'F', 5, 1, 7),
 (NULL, 'Ann', 'Mains', 81187, 1997, 28, 4, 4, 0, 0, 'F', 5, 1, 7),
 
-
+# 1996 - 5
 (NULL, 'Bliss', 'Collinge', 74192,1998, 98, 5, 6, 0, 0, 'F', 5, 1, 1),
 (NULL, 'Debbie', 'Carl', 30015,1998, 73, 4, 5, 0, 0, 'F', 5, 2, 2),
 (NULL, 'Georgine', 'Plunkett', 91376,1998, 89, 7, 1, 0, 0, 'F', 5, 3, 3),
