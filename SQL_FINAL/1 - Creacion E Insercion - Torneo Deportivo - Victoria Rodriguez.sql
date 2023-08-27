@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.equipo_m (
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.goleador (
 	id_goleador INT AUTO_INCREMENT,
 	id_jugador INT,
-    categoria INT(4) NOT NULL,
-    goles INT NOT NULL,
-    id_club INT NOT NULL,
+    categoria INT(4),
+    goles INT,
+    id_club INT,
     PRIMARY KEY (id_goleador)
     -- fk id_jugador, categoria
     -- indice cantidad_partidos
@@ -163,13 +163,12 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.log_goleador (
 
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.log_equipo_goleador (
-    id_equipo_goleador INT AUTO_INCREMENT,
-    id_equipo INT,
-    old_id_equipo INT,
+    id_partido INT AUTO_INCREMENT,
+    old_id_id_partido INT,
     categoria INT(4) NOT NULL,
-    goles INT NOT NULL,
-    id_club INT NOT NULL,
-    PRIMARY KEY (id_equipo_goleador)
+    equipo_visitante_goles INT NOT NULL,
+    equipo_local_goles INT NOT NULL,
+    PRIMARY KEY (id_partido)
 
 );
 
@@ -191,6 +190,22 @@ CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.partido_f (
     -- foreign key id_equipo_local y visitante 
 	, CONSTRAINT fk_id_equipo_local_f FOREIGN KEY (id_equipo_local) REFERENCES club (id_club)
 );
+
+
+CREATE TABLE IF NOT EXISTS  TorneoDeportivoVictoriaRodriguez.partido_con_mas_goles (
+	id_partido_con_mas_goles INT AUTO_INCREMENT,
+	id_partido INT,
+    id_arbitro INT NOT NULL,
+    categoria INT NOT NULL DEFAULT 0, 
+    id_equipo_local INT NOT NULL,
+    id_equipo_visitante INT NOT NULL,
+    equipo_local_goles INT NOT NULL DEFAULT 0,
+	equipo_visitante_goles INT NOT NULL DEFAULT 0,
+    id_equipo_ganador INT NOT NULL DEFAULT 0,
+    id_equipo_perdedor INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id_partido_con_mas_goles)
+);
+
 
 CREATE TABLE IF NOT EXISTS TorneoDeportivoVictoriaRodriguez.partido_m (
 	id_partido INT AUTO_INCREMENT,

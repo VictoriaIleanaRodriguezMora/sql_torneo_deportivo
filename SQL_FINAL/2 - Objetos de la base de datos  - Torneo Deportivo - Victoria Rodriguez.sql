@@ -18,6 +18,26 @@ FOR EACH ROW
 INSERT INTO log_goleador (id_goleador, id_jugador, old_id_jugador, categoria, goles, id_club)
 VALUES (NEW.id_goleador, NEW.id_jugador, OLD.id_jugador, NEW.categoria, NEW.goles, NEW.id_club);
 
+
+
+
+CREATE TRIGGER partido_con_mas_goles_AF_IN
+AFTER INSERT ON partido_con_mas_goles
+FOR EACH ROW
+INSERT INTO log_equipo_goleador (id_partido, categoria, equipo_visitante_goles, equipo_local_goles)
+VALUES (NEW.id_partido, NEW.categoria, NEW.equipo_visitante_goles, NEW.equipo_local_goles);
+
+
+
+CREATE TRIGGER partido_con_mas_goles_UP_IN
+AFTER UPDATE ON partido_con_mas_goles
+FOR EACH ROW
+INSERT INTO log_equipo_goleador (id_partido, old_id_id_partido, categoria, equipo_visitante_goles, equipo_local_goles)
+VALUES (NEW.id_partido, OLD.id_partido, NEW.categoria, NEW.equipo_visitante_goles, NEW.equipo_local_goles);
+
+
+
+
 #############################################################
 #############################################################
 ######################   FIN - TRIGGERS  ####################
